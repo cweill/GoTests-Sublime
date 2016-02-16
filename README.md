@@ -21,7 +21,7 @@ With [Package Control](http://wbond.net/sublime_packages/package_control):
 
 Manually:
 
-1. Clone this repo into your [Packages folder](https://www.sublimetext.com/docs/3/packages.html)
+1. Clone this repo into your [Packages folder](http://docs.sublimetext.info/en/sublime-text-3/basic_concepts.html#the-data-directory)
 2. Restart Sublime Text (if required)
 
 Finally, open `Preferences > Package Settings > GoTests > Settings - User`. In the newly created file, add the absolute path to the `gotests` binary (`$ which gotests`):
