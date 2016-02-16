@@ -4,7 +4,7 @@
 
 ## Demo
 
-![demo](/editors/SublimeText3/gotests.gif)
+![demo](/gotests.gif)
 
 ## Installation
 
