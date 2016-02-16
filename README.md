@@ -8,10 +8,35 @@
 
 ## Installation
 
-First use [`go get`](https://golang.org/cmd/go/#hdr-Download_and_install_packages_and_dependencies) to install and update the `gotests` tool:
+__Prequisite:__ Use [`go get`](https://golang.org/cmd/go/#hdr-Download_and_install_packages_and_dependencies) to install and update the `gotests` tool:
 ```sh
 $ go get -u github.com/cweill/gotests/...
 ```
+Next, install the `GoTests-Sublime` plugin:
+
+With [Package Control](http://wbond.net/sublime_packages/package_control):
+
+1. Run “Package Control: Install Package” command, find and install `GoTests` plugin.
+2. Restart Sublime Text (if required)
+
+Manually:
+
+1. Clone this repo into your [Packages folder](https://www.sublimetext.com/docs/3/packages.html)
+2. Restart Sublime Text (if required)
+
+Finally, open `Preferences > Package Settings > GoTests > Settings - User`. In the newly created file, add the absolute path to the `gotests` binary (`$ which gotests`):
+
+```js
+// GoTests.sublime-settings
+{
+    // Add path to gotests here.
+	"gotests_cmd": "/absolute/path/to/gotests",
+}
+```
+
+## Usage
+
+Select some functions, right-click, and select `Generate Go tests`. This appends missing tests to an existing test file, or creates a new test file with them.
 
 ## License
 
