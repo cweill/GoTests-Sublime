@@ -31,16 +31,16 @@ class gotestsCommand(sublime_plugin.TextCommand):
 	# Returns a function signature's line from a point in its body.
 	def function_line(self, point):
 		line = self.view.line(point)
-		if self.is_blank(line):
+		if self.is_end_bracket(line):
 			return line
 		above = line
-		while not self.is_blank(above) and not self.function_name(above) and above.begin() > 0:
+		while not self.is_end_bracket(above) and not self.function_name(above) and above.begin() > 0:
 			above = self.view.line(above.begin() - 1)
 		return above
 
-	# Return whether the line is blank.
-	def is_blank(self, line):
-		return self.view.substr(line.begin()) == '\n'
+	# Return whether the line is an end bracket.
+	def is_end_bracket(self, line):
+		return self.view.substr(line.begin()) == '}'
 
 	# Returns the name of the function if the given line is a method signature.
 	def function_name(self, line):
