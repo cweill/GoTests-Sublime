@@ -52,5 +52,10 @@ class gotestsCommand(sublime_plugin.TextCommand):
 			i = word.end() + 1
 			c = self.view.substr(word.end())
 			if c == "(":
-				return self.view.substr(word)
+				func = self.view.substr(word)
+				r = self.view.substr(self.view.word(word.begin() - 1))
+				if r == ")":
+					receiver = self.view.substr(self.view.word(r.begin() - 1))
+					func = receiver + func
+				return func
 		return None
