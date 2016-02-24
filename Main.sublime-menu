@@ -17,7 +17,7 @@
 								"caption": "Settings – Default",
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/GoTests/GoTests.sublime-settings"
+									"file": "${packages}/GoTests-Sublime/GoTests.sublime-settings"
 								}
 							},
 							{
