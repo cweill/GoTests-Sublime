@@ -1,4 +1,4 @@
 {
-	// The absolute path to the gotests binary.
-	"gotests_cmd": "gotests",
+	// Add your GOPATH here.
+	"GOPATH": "",
 }

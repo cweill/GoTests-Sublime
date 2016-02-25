@@ -1,11 +1,19 @@
 import sublime, sublime_plugin
 import subprocess
+import os
 
 class gotestsCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
+		settings = sublime.load_settings("GoTests.sublime-settings")
+		gopath = settings.get("GOPATH", "")
+		if os.environ.get("GOPATH") == None:
+			if gopath != "":
+				os.environ.putenv("GOPATH", gopath)
+			else:
+				sublime.message_dialog("GoTests: GOPATH is not set.")
+				return False
 		fn = self.view.file_name()
 		if fn and fn.endswith('.go') and not fn.endswith('_test.go'):
-			settings = sublime.load_settings("GoTests.sublime-settings")
 			fs = []
 			for s in self.view.sel():
 				line = self.function_line(s.begin())
@@ -18,12 +26,11 @@ class gotestsCommand(sublime_plugin.TextCommand):
 						continue
 					fs.append(f)
 			try:
-				gotests = settings.get("gotests_cmd", "gotests")
-				cmd = [gotests, '-w', '-only=^(' + "|".join(fs) + ')$', fn]
+				cmd = [os.path.join(gopath, "bin/gotests"), '-w', '-only=^(' + "|".join(fs) + ')$', fn]
 				proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
 				print(proc.stdout.read().decode("utf-8").replace('\r\n', '\n'))
 			except OSError as e:
-				sublime.message_dialog("GoTests error: " + str(e))
+				sublime.message_dialog("GoTests error: " + str(e) + ".")
 				return False
 			return True
 		return False

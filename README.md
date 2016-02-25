@@ -24,13 +24,13 @@ Manually:
 1. Clone this repo into your [Packages folder](http://docs.sublimetext.info/en/sublime-text-3/basic_concepts.html#the-data-directory)
 2. Restart Sublime Text (if required)
 
-Finally, open `Preferences > Package Settings > GoTests > Settings - User`. In the newly created file, add the absolute path to the `gotests` binary (`$ which gotests`):
+Finally, open `Preferences > Package Settings > GoTests > Settings - User`. In the newly created file, set your `$GOPATH`:
 
 ```js
 // GoTests.sublime-settings
 {
-    // Add path to gotests here.
-	"gotests_cmd": "/absolute/path/to/gotests",
+	// Add your GOPATH here.
+	"GOPATH": "/absolute/go/path/",
 }
 ```
 
