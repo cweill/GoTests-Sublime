@@ -8,7 +8,9 @@ class gotestsCommand(sublime_plugin.TextCommand):
 		gopath = settings.get("GOPATH", "")
 		if os.environ.get("GOPATH") == None:
 			if gopath != "":
-				os.environ.putenv("GOPATH", gopath)
+				# Set $GOPATH in this shell and add $GOPATH/bin to $PATH.
+				os.environ["GOPATH"] = gopath
+				os.environ["PATH"] += os.pathsep + os.path.join(gopath, "bin")
 			else:
 				sublime.message_dialog("GoTests: GOPATH is not set.")
 				return False
@@ -26,7 +28,7 @@ class gotestsCommand(sublime_plugin.TextCommand):
 						continue
 					fs.append(f)
 			try:
-				cmd = [os.path.join(gopath, "bin/gotests"), '-w', '-only=^(' + "|".join(fs) + ')$', fn]
+				cmd = ["gotests", '-w', '-only=^(' + "|".join(fs) + ')$', fn]
 				proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
 				print(proc.stdout.read().decode("utf-8").replace('\r\n', '\n'))
 			except OSError as e:
