@@ -28,7 +28,8 @@ class gotestsCommand(sublime_plugin.TextCommand):
 						continue
 					fs.append(f)
 			try:
-				cmd = ["gotests", '-w', '-only=(?i)^(' + "|".join(fs) + ')$', fn]
+				gotests = settings.get("gotests_cmd", "gotests")
+				cmd = [gotests, '-w', '-only=(?i)^(' + "|".join(fs) + ')$', fn]
 				proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
 				print(proc.stdout.read().decode("utf-8").replace('\r\n', '\n'))
 			except OSError as e:

@@ -1,4 +1,6 @@
 {
 	// Add your GOPATH here.
 	"GOPATH": "",
+	// The gotests command to run.
+	"gotests_cmd": "gotests",
 }
