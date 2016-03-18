@@ -16,13 +16,14 @@ Next, install the `GoTests-Sublime` plugin:
 
 With [Package Control](http://wbond.net/sublime_packages/package_control):
 
-1. Run “Package Control: Install Package” command, find and install `GoTests` plugin.
-2. Restart Sublime Text (if required)
+1. Run the `Package Control: Install Package` command
+1. Find and install `GoTests`
+1. Restart Sublime Text (if required)
 
 Manually:
 
 1. Clone this repo into your [Packages folder](http://docs.sublimetext.info/en/sublime-text-3/basic_concepts.html#the-data-directory)
-2. Restart Sublime Text (if required)
+1. Restart Sublime Text (if required)
 
 Finally, open `Preferences > Package Settings > GoTests > Settings - User`. In the newly created file, set your `$GOPATH`:
 
