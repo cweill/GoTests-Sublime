@@ -1,6 +1,6 @@
 # GoTests-Sublime [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/cweill/GoTests-Sublime/blob/master/LICENSE)
 
-`GoTests-Sublime` is an IDE plugin for Sublime Text 3 for automatically generating [table driven tests](https://github.com/golang/go/wiki/TableDrivenTests). It uses [`gotests`](https://github.com/cweill/gotests) to generate missing tests based on its target source files' function and method signatures. Any new dependencies in the test files are automatically imported.
+`GoTests-Sublime` makes writing better Go tests easy. It is an IDE plugin for Sublime Text 3 that uses [`gotests`](https://github.com/cweill/gotests) to generate [table driven tests](https://github.com/golang/go/wiki/TableDrivenTests) from selected function and method signatures. Any new dependencies in the test files are automatically imported.
 
 ## Demo
 
